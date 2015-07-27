@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Platform JS</title>
+	<link rel="stylesheet" href="game.css">
+</head>
+<body>
+	<script src="game.js" type="text/javascript"></script>
+	<script src="dom.js" type="text/javascript"></script>
+	<script>
+		var scale = 20;
+		var simpleLevelPlan = [
+		  "                      ",
+		  "                      ",
+		  "  x              = x  ",
+		  "  x         o o    x  ",
+		  "  x @      xxxxx   x  ",
+		  "  xxxxx            x  ",
+		  "      x!!!!!!!!!!!!x  ",
+		  "      xxxxxxxxxxxxxx  ",
+		  "                      "
+		];
+		runGame([simpleLevelPlan], DOMDisplay);
+	</script>
+</body>
+</html>
