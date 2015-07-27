@@ -8,20 +8,9 @@
 <body>
 	<script src="game.js" type="text/javascript"></script>
 	<script src="dom.js" type="text/javascript"></script>
+	<script src="levels.js" type="text/javascript"></script>
 	<script>
-		var scale = 20;
-		var simpleLevelPlan = [
-		  "                      ",
-		  "                      ",
-		  "  x              = x  ",
-		  "  x         o o    x  ",
-		  "  x @      xxxxx   x  ",
-		  "  xxxxx            x  ",
-		  "      x!!!!!!!!!!!!x  ",
-		  "      xxxxxxxxxxxxxx  ",
-		  "                      "
-		];
-		runGame([simpleLevelPlan], DOMDisplay);
+		runGame(GAME_LEVELS, DOMDisplay);
 	</script>
 </body>
 </html>

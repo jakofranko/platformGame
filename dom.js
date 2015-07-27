@@ -7,6 +7,7 @@ function elt(name, className) {
 function DOMDisplay(parent, level) {
   this.wrap = parent.appendChild(elt("div", "game"));
   this.level = level;
+  this.scale = 30;
 
   this.wrap.appendChild(this.drawBackground());
   this.actorLayer = null;
@@ -14,25 +15,25 @@ function DOMDisplay(parent, level) {
 }
 DOMDisplay.prototype.drawBackground = function() {
 	var table = elt("table", "background");
-	table.style.width = this.level.width * scale + "px";
+	table.style.width = this.level.width * this.scale + "px";
 	this.level.grid.forEach(function(row) {
 		var rowElt = table.appendChild(elt("tr"));
-		rowElt.style.height = scale + "px";
+		rowElt.style.height = this.scale + "px";
 		row.forEach(function(type) {
 			rowElt.appendChild(elt("td", type));
 		});
-	});
+	}, this);
 	return table;
 };
 DOMDisplay.prototype.drawActors = function() {
 	var wrap = elt("div");
 	this.level.actors.forEach(function(actor) {
 		var rect = wrap.appendChild(elt("div", "actor " + actor.type));
-		rect.style.width = actor.size.x * scale + "px";
-		rect.style.height = actor.size.y * scale + "px";
-		rect.style.left = actor.pos.x * scale + "px"
-		rect.style.top = actor.pos.y * scale + "px";
-	});
+		rect.style.width = actor.size.x * this.scale + "px";
+		rect.style.height = actor.size.y * this.scale + "px";
+		rect.style.left = actor.pos.x * this.scale + "px"
+		rect.style.top = actor.pos.y * this.scale + "px";
+	}, this);
 	return wrap;
 };
 DOMDisplay.prototype.drawFrame = function() {
@@ -54,7 +55,7 @@ DOMDisplay.prototype.scrollPlayerIntoView = function() {
 		bottom = top + height;
 
 	var player = this.level.player;
-	var center = player.pos.plus(player.size.times(0.5)).times(scale);
+	var center = player.pos.plus(player.size.times(0.5)).times(this.scale);
 
 	// Horizontal scroll
 	if(center.x < left + margin)
