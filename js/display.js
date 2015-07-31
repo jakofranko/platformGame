@@ -167,8 +167,6 @@ function CanvasDisplay(parent, level) {
 	this.playerSprite.src = "img/player_sprite.png";
 	this.playerXOverlap = 4;
 
-	
-
 	this.viewport = {
 		left: 0,
 		top: 0,
