@@ -6,6 +6,11 @@
   margin: 0 auto;
 }
 
+canvas {
+  margin: 0 auto;
+  display: block;
+}
+
 .lost .player {
   background: rgb(160, 64, 64);
 }
